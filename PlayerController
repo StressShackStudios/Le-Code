@@ -1,0 +1,80 @@
+public float moveSpeed = 2.0f;
+
+public Rigidbody rigidbody;
+public Animator animator;
+
+Vector3 movement;
+
+void Update()
+{
+  movement.z = Input.GetRawAxis("Horizontal");
+  movement.y = Input.GetRawAxis("Vertical");
+  
+  animator.SetFloat("Horizontal", movement.z);
+  animator.SetFloat("Vertical", movement.y);
+  animator.SetFloat("Speed", movement.sqrMagnitude);
+}
+
+void FixedUpdate()
+{
+  rigidbody.MovePosition(rigidbody + movement * moveSpeed * Time.fixedDeltaTime);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
