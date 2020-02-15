@@ -1,0 +1,19 @@
+    public float moveSpeed;
+    public CharacterController Controller;
+    private Vector3 moveDirection;
+    public float gravityScale;//So gravity can be simply edited on the fly
+    
+    void Start()
+    {
+        Controller = GetComponent<CharacterController>();//Using built in player controller instead. We can change this later if need be
+    }
+
+   
+    void Update()
+    {
+        moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0f, Input.GetAxis("Vertical") * moveSpeed);
+        
+        moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale);//le gravity
+        Controller.Move(moveDirection  * Time.deltaTime);
+        
+    }
