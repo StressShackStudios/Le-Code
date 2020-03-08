@@ -23,6 +23,7 @@ public class PlayerHeadCam : MonoBehaviour
         smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / Smoothing);
         smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / Smoothing);
         mouseLook += smoothV;
+        mouseLook.y = Mathf.Clamp(mouseLook.y, -90f, 90f);
 
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         Player.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, Player.transform.up);
