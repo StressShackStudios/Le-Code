@@ -6,7 +6,6 @@ public class AnxVal : MonoBehaviour
 {
     public float anxietyLv;
     public AnxietyBar ABar;
-    public GameObject Hud;
     // Start is called before the first frame update
     void Start()
     {
